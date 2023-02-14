@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-public class DataBaseScheduleAppointement {
+public class ReSechduleVaccineDatabase {
 	  private static String driver="com.mysql.jdbc.Driver"; 
 	  private static String url="jdbc:mysql:///vaccination";
 	  private static String user="root";
@@ -21,7 +21,7 @@ public class DataBaseScheduleAppointement {
 		Statement st=null;
 		Statement stmt=null;
 		
-	public void insertIntoSV(ArrayList<String> al)
+	public void insertIntoRV(ArrayList<String> al)
 	{
 		
 		try{
@@ -31,7 +31,7 @@ public class DataBaseScheduleAppointement {
 			con=DriverManager.getConnection(url,user,pwd);
 			st=con.createStatement();
 			
-			String query = "INSERT INTO `booking_details`(`aadharNo`,`emailId`,`city`, `centre`,`date`,`type`,`doseNo`) VALUES (?,?,?,?,?,?,?)";
+			String query = "INSERT INTO `rebooking_details`(`emailId`,`city`, `centre`,`date`,`type`,`doseNo`) VALUES (?,?,?,?,?,?)";
 			ps=con.prepareStatement(query);
 			
 			ps.setString(1,al.get(0));      
@@ -40,7 +40,6 @@ public class DataBaseScheduleAppointement {
 			ps.setString(4,al.get(3));
 			ps.setString(5,al.get(4));	
 			ps.setString(6,al.get(5));
-			ps.setString(7,al.get(6));
 			ps.executeUpdate();
 
 			}

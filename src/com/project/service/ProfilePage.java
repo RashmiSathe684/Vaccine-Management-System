@@ -26,6 +26,7 @@ public class ProfilePage extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private JLabel fnameLbl,lnameLbl,phoneNoLbl,emailIdLbl,dobLbl,genderLbl,addressLbl,profilename;
 	private static String driver="com.mysql.jdbc.Driver"; 
 	  private static String url="jdbc:mysql:///vaccination";
 	  private static String user="root";
@@ -46,6 +47,47 @@ public class ProfilePage extends JFrame {
 		});
 	}
 
+	public void profileData_display() 
+	{
+	try
+	{
+	Class.forName(driver);
+	con=DriverManager.getConnection(url,user,pwd);
+	String sql="select * from reg_details";
+	pst=con.prepareStatement(sql);
+	rs=pst.executeQuery();
+	while(rs.next())
+	{
+		
+		String a=rs.getString("firstname");
+		fnameLbl.setText(a);
+		
+		
+		String b=rs.getString("lastname");
+		lnameLbl.setText(b);
+		
+		profilename.setText(a.concat(" ").concat(b));
+		
+		String c=rs.getString("phoneNo");
+		phoneNoLbl.setText(c);
+		
+		String d=rs.getString("emailId");
+		emailIdLbl.setText(d);
+		
+		String e=rs.getString("dob");
+		dobLbl.setText(e);
+		
+		String f=rs.getString("gender");
+		genderLbl.setText(f);
+		
+		String g=rs.getString("address");
+		addressLbl.setText(g);
+	
+	}
+	}catch(Exception e){
+		e.printStackTrace();
+	}
+	}
 	/**
 	 * Create the frame.
 	 */
@@ -117,54 +159,54 @@ public class ProfilePage extends JFrame {
 		lblNewLabel_5_5.setFont(new Font("Segoe UI Variable", Font.BOLD, 20));
 		panel_1.add(lblNewLabel_5_5);
 		
-		JLabel lblNewLabel_7 = new JLabel("");
-		lblNewLabel_7.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
-		lblNewLabel_7.setBounds(240, 65, 362, 31);
-		lblNewLabel_7.setOpaque(true);
-		lblNewLabel_7.setBackground(new Color(255, 255, 255));
-		panel_1.add(lblNewLabel_7);
+		fnameLbl = new JLabel("");
+		fnameLbl.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
+		fnameLbl.setBounds(240, 65, 362, 31);
+		fnameLbl.setOpaque(true);
+		fnameLbl.setBackground(new Color(255, 255, 255));
+		panel_1.add(fnameLbl);
 		
-		JLabel lblNewLabel_7_1 = new JLabel("");
-		lblNewLabel_7_1.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
-		lblNewLabel_7_1.setBounds(240, 106, 362, 31);
-		lblNewLabel_7_1.setOpaque(true);
-		lblNewLabel_7_1.setBackground(new Color(255, 255, 255));
-		panel_1.add(lblNewLabel_7_1);
+		lnameLbl = new JLabel("");
+		lnameLbl.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
+		lnameLbl.setBounds(240, 106, 362, 31);
+		lnameLbl.setOpaque(true);
+		lnameLbl.setBackground(new Color(255, 255, 255));
+		panel_1.add(lnameLbl);
 		
-		JLabel lblNewLabel_7_2 = new JLabel("");
-		lblNewLabel_7_2.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
-		lblNewLabel_7_2.setBounds(240, 155, 362, 31);
-		lblNewLabel_7_2.setOpaque(true);
-		lblNewLabel_7_2.setBackground(new Color(255, 255, 255));
-		panel_1.add(lblNewLabel_7_2);
+		 phoneNoLbl = new JLabel("");
+		phoneNoLbl.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
+		phoneNoLbl.setBounds(240, 155, 362, 31);
+		phoneNoLbl.setOpaque(true);
+		phoneNoLbl.setBackground(new Color(255, 255, 255));
+		panel_1.add(phoneNoLbl);
 		
-		JLabel lblNewLabel_7_3 = new JLabel("");
-		lblNewLabel_7_3.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
-		lblNewLabel_7_3.setBounds(240, 203, 362, 31);
-		lblNewLabel_7_3.setOpaque(true);
-		lblNewLabel_7_3.setBackground(new Color(255, 255, 255));
-		panel_1.add(lblNewLabel_7_3);
+		 emailIdLbl = new JLabel("");
+		emailIdLbl.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
+		emailIdLbl.setBounds(240, 203, 362, 31);
+		emailIdLbl.setOpaque(true);
+		emailIdLbl.setBackground(new Color(255, 255, 255));
+		panel_1.add(emailIdLbl);
 		
-		JLabel lblNewLabel_7_4 = new JLabel("");
-		lblNewLabel_7_4.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
-		lblNewLabel_7_4.setBounds(240, 247, 362, 31);
-		lblNewLabel_7_4.setOpaque(true);
-		lblNewLabel_7_4.setBackground(new Color(255, 255, 255));
-		panel_1.add(lblNewLabel_7_4);
+		 dobLbl = new JLabel("");
+		dobLbl.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
+		dobLbl.setBounds(240, 247, 362, 31);
+		dobLbl.setOpaque(true);
+		dobLbl.setBackground(new Color(255, 255, 255));
+		panel_1.add(dobLbl);
 		
-		JLabel lblNewLabel_7_5 = new JLabel("");
-		lblNewLabel_7_5.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
-		lblNewLabel_7_5.setBounds(240, 294, 362, 31);
-		lblNewLabel_7_5.setOpaque(true);
-		lblNewLabel_7_5.setBackground(new Color(255, 255, 255));
-		panel_1.add(lblNewLabel_7_5);
+		 genderLbl = new JLabel("");
+		genderLbl.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
+		genderLbl.setBounds(240, 294, 362, 31);
+		genderLbl.setOpaque(true);
+		genderLbl.setBackground(new Color(255, 255, 255));
+		panel_1.add(genderLbl);
 		
-		JLabel lblNewLabel_7_6 = new JLabel("");
-		lblNewLabel_7_6.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
-		lblNewLabel_7_6.setBounds(240, 340, 362, 31);
-		lblNewLabel_7_6.setOpaque(true);
-		lblNewLabel_7_6.setBackground(new Color(255, 255, 255));
-		panel_1.add(lblNewLabel_7_6);
+		 addressLbl = new JLabel("");
+		addressLbl.setFont(new Font("Segoe UI Variable", Font.PLAIN, 15));
+		addressLbl.setBounds(240, 340, 362, 31);
+		addressLbl.setOpaque(true);
+		addressLbl.setBackground(new Color(255, 255, 255));
+		panel_1.add(addressLbl);
 		
 		JLabel lblNewLabel_3 = new JLabel("Profile ");
 		lblNewLabel_3.setOpaque(true);
@@ -193,48 +235,10 @@ public class ProfilePage extends JFrame {
 		lblNewLabel_2.setBounds(10, 133, 75, 64);
 		contentPane.add(lblNewLabel_2);
 		
-		JLabel profilename = new JLabel("");
+		profilename = new JLabel("");
 		profilename.setFont(new Font("Segoe UI Variable", Font.BOLD, 20));
 		profilename.setBounds(84, 133, 150, 36);
 		contentPane.add(profilename);
-	
-		try
-		{
-		Class.forName(driver);
-		con=DriverManager.getConnection(url,user,pwd);
-		String sql="select * from reg_details";
-		pst=con.prepareStatement(sql);
-		rs=pst.executeQuery();
-		while(rs.next())
-		{
-			
-			String a=rs.getString("firstname");
-			lblNewLabel_7.setText(a);
-			
-			
-			String b=rs.getString("lastname");
-			lblNewLabel_7_1.setText(b);
-			
-			profilename.setText(a.concat(" ").concat(b));
-			
-			String c=rs.getString("phoneNo");
-			lblNewLabel_7_2.setText(c);
-			
-			String d=rs.getString("emailId");
-			lblNewLabel_7_3.setText(d);
-			
-			String e=rs.getString("dob");
-			lblNewLabel_7_4.setText(e);
-			
-			String f=rs.getString("gender");
-			lblNewLabel_7_5.setText(f);
-			
-			String g=rs.getString("address");
-			lblNewLabel_7_6.setText(g);
-		
-		}
-		}catch(Exception e){
-			e.printStackTrace();
-		}
+		profileData_display();
 	}
 }

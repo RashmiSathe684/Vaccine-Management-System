@@ -111,17 +111,13 @@ public class DashBoardPage extends JFrame
 		panel.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Schedule Vaccine ");
-		btnNewButton.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e) 
-			{				
-				ScheduleVaccine Sframe = new ScheduleVaccine();
-				Sframe.setVisible(true);		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VaccineOption vp=new VaccineOption();
+				vp.setVisible(true);
 				dispose();
 			}
 		});
-
-		
 		btnNewButton.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));
 		btnNewButton.setBounds(70, 143, 225, 45);
 		panel_1.add(btnNewButton);
@@ -129,8 +125,9 @@ public class DashBoardPage extends JFrame
 		JButton btnNewButton_1 = new JButton("View Appointment ");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ViewAppointement va=new ViewAppointement();
-				va.setVisible(true);
+				ViewBookedAppointement Vframe=new ViewBookedAppointement();
+				Vframe.setVisible(true);
+				dispose();
 			}
 		});
 		btnNewButton_1.setFont(new Font("Segoe UI Variable", Font.BOLD, 15));

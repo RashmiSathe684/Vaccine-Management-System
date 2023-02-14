@@ -9,10 +9,10 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class emailId 
+public class reEmailId 
 {
 	 
-	static String message="Hello Dear....\nYour Vaccination for Dose 1 is successfully scheduled for covid-19";
+	static String message="Hello Dear....\nYour Vaccination for Dose 2  is successfully scheduled for covid-19";
 	   static String subject="Vaccination Appointement: Confirmation ";
 	   static String from="pritiathawale111@gmail.com";
 	public static void main(String[] args) {
@@ -24,7 +24,7 @@ public class emailId
    
 }
 
-public static void sendEmail(String to) {
+public static void sendReEmail(String to) {
 	// TODO Auto-generated method stub
 	String host="smtp.gmail.com";
 	

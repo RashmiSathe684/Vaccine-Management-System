@@ -266,10 +266,12 @@ public class RegistrationPage extends JFrame
 				boolean b;
 				//Validation for First Name 
 				 b =Pattern.compile("^[A-Za-z]{2,29}$").matcher(FnametextField.getText()).matches(); 
-				 if(b==true) { 
+				 if(b==true) 
+				 { 
 					 FirstNameLabelError.setVisible(false);
-						}
-				 else {
+					}
+				 else 
+				 {
 					 FirstNameLabelError.setVisible(true);
 
 				 }
